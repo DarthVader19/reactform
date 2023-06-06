@@ -7,6 +7,12 @@ const Form = () => {
     const [country,setCountry] = useState('');
     const [state,setState] = useState([]);
     const [city,setCity] = useState([]);
+    const [gender,setGender] = useState('');
+    const [Dob,setDob] = useState('');
+
+
+
+
 
     
 
@@ -25,6 +31,7 @@ const Form = () => {
         const age = new Date().getFullYear() - +e.target.value.slice(0,4);
 
        document.querySelector('#age').setAttribute('placeholder',age)
+       setDob(e.target.value)
     }
 
   return (
@@ -89,7 +96,7 @@ const Form = () => {
         <br/><br/>
 
         <label htmlFor="gender">Gender:</label>
-        <input type="radio" id="male" name="gender" value="male" required />
+        <input type="radio" id="male" name="gender" onChange={(e)=>setGender(e.target.value)} value="male" required />
         <label htmlFor="male">Male</label>
         <input type="radio" id="female" name="gender" value="female" required />
         <label htmlFor="female">Female</label>
